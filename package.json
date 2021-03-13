@@ -1,0 +1,18 @@
+{
+    "name": "meet-scheduler",
+    "version": "1.0.0",
+    "description": "Schedule Google Meets",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc && crx3 -z extension.zip extension",
+        "compile": "tsc"
+    },
+    "author": "Matthew_Cash",
+    "license": "ISC",
+    "dependencies": {
+        "@types/chrome": "0.0.133",
+        "crx3": "^1.1.3",
+        "typescript": "^4.2.3"
+    }
+}

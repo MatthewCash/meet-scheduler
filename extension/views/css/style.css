@@ -1,0 +1,100 @@
+:root {
+    font-size: 15px;
+    color: white;
+}
+
+html,
+body {
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 1rem;
+}
+
+/* .meet-container {
+    display: flex;
+    margin-top: 10px;
+} */
+
+.meet-label-header {
+    font-size: 16px;
+    text-align: left;
+}
+
+.meet-input-header {
+    font-size: 16px;
+}
+
+.meet-label {
+    text-align: left;
+    font-family: monospace;
+}
+
+.remove-meet {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    color: red;
+    transition: color 1s;
+    cursor: pointer;
+}
+
+.remove-meet:hover {
+    color: rgb(216, 118, 118);
+}
+
+.create-meet {
+    margin-top: 5px;
+    display: flex;
+}
+
+#input-code {
+    margin-right: 5px;
+}
+
+.settings {
+    width: 100%;
+}
+
+.setting-label {
+    white-space: nowrap;
+    text-align: left;
+}
+
+#minimum-user-input,
+#auth-user-input {
+    width: 5ch;
+}
+
+.meeting-table {
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#day-label {
+    width: 10ch;
+}
+
+.pagination > button {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

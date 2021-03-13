@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script defer src="./js/popup.js"></script>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="options">
+                <h1>Meet Scheduler</h1>
+                <table class="settings">
+                    <tbody>
+                        <tr>
+                            <th class="setting-label">Minimum People</th>
+                            <th class="setting-input">
+                                <input
+                                    type="number"
+                                    name="minimumCountToJoin"
+                                    id="minimum-user-input"
+                                />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="setting-label">Action</th>
+                            <th class="setting-input">
+                                <select
+                                    name="minimumAction"
+                                    id="minimum-action-input"
+                                >
+                                    <option value="0">Nothing</option>
+                                    <option value="1">Notify</option>
+                                    <option value="2">Join</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="setting-label">Auto Mute</th>
+                            <th class="setting-input">
+                                <input
+                                    type="checkbox"
+                                    name="autoMute"
+                                    id="auto-mute-input"
+                                />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="setting-label">Auto Disable Camera</th>
+                            <th class="setting-input">
+                                <input
+                                    type="checkbox"
+                                    name="autoDisableCamera"
+                                    id="auto-disable-camera-input"
+                                />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="setting-label">Auth User Number</th>
+                            <th class="setting-input">
+                                <input
+                                    type="number"
+                                    name="authUser"
+                                    id="auth-user-input"
+                                />
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <div class="pagination">
+                    <button id="prev-day">&larr;</button>
+                    <div id="day-label">Day</div>
+                    <button id="next-day">&rarr;</button>
+                </div>
+                <table class="meeting-table">
+                    <tbody>
+                        <tr>
+                            <th class="meet-label-header">Meet Code</th>
+                            <th class="meet-input-header">Time</th>
+                        </tr>
+                    </tbody>
+                    <tbody id="meets"></tbody>
+                </table>
+                <div class="create-meet">
+                    <input
+                        type="text"
+                        id="input-code"
+                        placeholder="Meet Lookup Code"
+                    />
+                    <button id="create-meet">Add</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
