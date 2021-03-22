@@ -85,32 +85,35 @@
         if (changes['authUser']) authUser = changes['authUser'].newValue;
     });
 
+    const checkSchedule = () => {
+        const date = new Date();
+
+        const formattedHours = String(date.getHours()).padStart(2, '0');
+        const formattedMinutes = String(date.getMinutes()).padStart(2, '0');
+
+        const formattedTime = `${formattedHours}:${formattedMinutes}`;
+
+        const triggeredMeets = weekSchedule[new Date().getDay()].filter(
+            meet => meet.time === formattedTime
+        );
+
+        triggeredMeets.forEach(({ code }) => {
+            chrome.tabs.create({
+                url: `https://meet.google.com/lookup/${code}?authuser=${authUser}&hs=179&autoRefresh=1&scheduled=1`
+            });
+        });
+    };
+
     const startScheduler = async () => {
+        console.log('Running delay!');
         const date = new Date();
 
         const delay = 60000 - date.getSeconds() * 1000 - date.getMilliseconds();
 
         await new Promise(r => setTimeout(r, delay));
 
-        setInterval(() => {
-            console.log('Checking schedule');
-            const date = new Date();
-
-            const formattedHours = String(date.getHours()).padStart(2, '0');
-            const formattedMinutes = String(date.getMinutes()).padStart(2, '0');
-
-            const formattedTime = `${formattedHours}:${formattedMinutes}`;
-
-            const triggeredMeets = weekSchedule[new Date().getDay()].filter(
-                meet => meet.time === formattedTime
-            );
-
-            triggeredMeets.forEach(({ code }) => {
-                chrome.tabs.create({
-                    url: `https://meet.google.com/lookup/${code}?authuser=${authUser}&autoRefresh=1&scheduled=1`
-                });
-            });
-        }, 60000);
+        checkSchedule();
+        setInterval(checkSchedule, 60000);
     };
 
     startScheduler();
